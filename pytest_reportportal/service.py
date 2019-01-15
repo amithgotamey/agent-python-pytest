@@ -92,11 +92,10 @@ class PyTestServiceClass(with_metaclass(Singleton, object)):
                 project=project,
                 token=uuid,
                 error_handler=self.async_error_handler,
-                log_batch_size=log_batch_size,
-                verify_ssl=verify_ssl
+                log_batch_size=log_batch_size
             )
-            self.project_settiings = self.RP.rp_client.get_project_settings() if self.RP else None
-            self.issue_types = self.get_issue_types()
+            # self.project_settiings = self.RP.rp_client.get_project_settings() if self.RP else None
+            # self.issue_types = self.get_issue_types()
         else:
             log.debug('The pytest is already initialized')
         return self.RP
